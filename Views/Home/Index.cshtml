@@ -1,8 +1,120 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@if (ViewBag.Sucesso != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Sucesso
+    </div>
+}
+@if (ViewBag.Erro != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Erro
+    </div>
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+
+    .hero {
+        background-color: #68c3d4;
+        color: #fff;
+        padding: 70px;
+    }
+
+        .hero h1 {
+            font-size: 2.5em;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+        .hero .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #68c3d4;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+    .cta {
+        background-color: #f9f9f9;
+        padding: 50px;
+    }
+
+        .cta h2 {
+            font-size: 2em;
+        }
+
+        .cta p {
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+
+        .cta a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #68c3d4;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+</style>
+
+    <div class="text-center p-4">
+        <h1>Seacare</h1>
+        <p>A busca pela preservação do Mar</p>
+    </div>
+<div class="d-flex flex-column gap-xxl-5">
+    <div class="hero">
+        <div>
+            <h1>Preserve o Mar</h1>
+            <p>Seacare está comprometida em proteger e preservar nossos oceanos. Ajude-nos a manter nossas praias limpas denunciando artefatos encontrados nas encostas do mar.</p>
+            <a class="btn" asp-controller="Reporte" asp-action="Index">Denuncie Agora</a>
+        </div>
+    </div>
+
+    <div class="cta">
+        <h2>Por que Denunciar?</h2>
+        <p>A poluição dos oceanos representa uma ameaça significativa para a vida marinha e para o meio ambiente como um todo. Sua contribuição faz a diferença na proteção de nossos mares.</p>
+        <div class="additional-info">
+            <p>Alguns fatos importantes:</p>
+            <ul>
+                <li>A poluição plástica nos oceanos está crescendo a uma taxa alarmante, com mais de 8 milhões de toneladas de plástico indo parar no mar a cada ano.</li>
+                <li>Estima-se que mais de 100.000 mamíferos marinhos e milhões de aves marinhas morrem a cada ano devido à ingestão de plástico ou por ficarem presos em redes de pesca abandonadas.</li>
+                <li>A poluição marinha também afeta diretamente os seres humanos, pois os resíduos plásticos podem contaminar a água potável e os frutos do mar que consumimos.</li>
+                <li>A denúncia de artefatos nas encostas do mar é crucial para identificar áreas de alta poluição e implementar medidas de limpeza e prevenção.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div>
+            <div class="pb-3">
+                <h1>Por que Preservar ?</h1>
+                <p>O oceano é essencial para a vida no nosso planeta. Saiba por que é crucial preservá-lo e como você pode fazer a diferença.</p>
+            </div>
+            <div class="d-flex flex-column gap-3">
+                <div>
+                    <h4>Impacto da Poluição nos Oceanos</h4>
+                    <p>A poluição plástica, química e por nutrientes representa uma ameaça significativa para os oceanos e sua vida marinha. Milhões de animais marinhos morrem anualmente devido à ingestão de plástico ou por ficarem presos em redes de pesca abandonadas.</p>
+                 </div>
+
+                <div>
+                    <h4>Soluções e Ações de Conservação</h4>
+                    <p>Podemos combater a poluição marinha adotando práticas sustentáveis, reduzindo o uso de plásticos descartáveis, participando de limpezas costeiras e apoiando iniciativas de conservação marinha.</p>
+                </div>
+
+                <div>
+                    <h4>Envolvimento da Comunidade</h4>
+                    <p>A preservação do mar é uma responsabilidade coletiva. Envolver-se em atividades de conservação, educar-se sobre a importância dos oceanos e influenciar políticas sustentáveis são maneiras eficazes de proteger nosso ambiente marinho.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+

@@ -1,0 +1,100 @@
+﻿@if (ViewBag.Sucesso != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Sucesso
+    </div>
+}
+@if (ViewBag.Erro != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Erro
+    </div>
+}
+
+<style>
+    .bg {
+        background-color: #86cfdc;
+        border-radius: 20px;
+    }
+
+    .form-group {
+        width: 100%;
+        max-width: 48%;
+    }
+
+    .full-width {
+        width: 100%;
+    }
+
+    .btn{
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #fff;
+        color: #68c3d4;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="container d-flex justify-content-center pt-4">
+    <main role="main" class="pb-3 bg text-white w-75">
+        <h1 class="text-center pt-5">Reporte de Artefatos</h1>
+        <form asp-controller="Reporte" asp-action="EfetuarReporte" method="post" class="report-form d-flex flex-wrap gap-4 p-4">
+            <div class="form-group">
+                <label for="nome">Seu nome (Opcional):</label>
+                <input type="text" id="nome" name="nome" class="form-control" placeholder="Ex: José Henrique">
+            </div>
+            <div class="form-group">
+                <label for="uf">UF (Unidade Federativa):</label>
+                <select id="uf" name="uf" class="form-control" required>
+                    <option value="">Selecione</option>
+                    <option value="AC">AC</option>
+                    <option value="AL">AL</option>
+                    <option value="AP">AP</option>
+                    <option value="AM">AM</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MT">MT</option>
+                    <option value="MS">MS</option>
+                    <option value="MG">MG</option>
+                    <option value="PA">PA</option>
+                    <option value="PB">PB</option>
+                    <option value="PR">PR</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RN">RN</option>
+                    <option value="RS">RS</option>
+                    <option value="RO">RO</option>
+                    <option value="RR">RR</option>
+                    <option value="SC">SC</option>
+                    <option value="SP">SP</option>
+                    <option value="SE">SE</option>
+                    <option value="TO">TO</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" name="cidade" class="form-control" placeholder="Ex: Salvador"  required>
+            </div>
+            <div class="form-group">
+                <label for="localidade">Localidade:</label>
+                <input type="text" id="localidade" name="localidade" class="form-control" placeholder="Ex: Encosta de Salvador"  required>
+            </div>
+            <div class="form-group full-width">
+                <label for="artefato">Artefato:</label>
+                <input type="text" id="artefato" name="artefato" class="form-control" placeholder="Ex: Banana"  required>
+            </div>
+            <div class="form-group full-width">
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" name="descricao" class="form-control" rows="3" placeholder="Ex: Uma banana apodrecida na encosta do mar" required></textarea>
+            </div>
+            <button type="submit" class="btn">Enviar</button>
+        </form>
+    </main>
+</div>

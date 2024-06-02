@@ -1,34 +1,69 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SeaCare</title>
+    <title>@ViewData["Title"] SeaCare</title>
+    <link rel="icon" href="./Images/onda.png" type="image/x-icon" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SeaCare.styles.css" asp-append-version="true" />
+    <style>
+        .nav-link-custom {
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            position: relative;
+            text-decoration: none;
+            padding: .5rem 1rem;
+        }
+
+            .nav-link-custom::after {
+                content: '';
+                position: absolute;
+                height: 3px;
+                background-color: white;
+                width: 0;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                transition: width 0.4s;
+            }
+
+            .nav-link-custom:hover::after {
+                width: 100%;
+            }
+
+        .container-fluid{
+            width: 85%;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SeaCare</a>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light custom-navbar border-bottom box-shadow mb-3 p-4">
+            <div class="container-fluid d-flex align-items-center">
+                <a class="text-white" asp-area="" asp-controller="Home" asp-action="Index" style="font-size: 1.8rem; text-decoration: none;">SeaCare</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <div class="">
+                    <ul class="navbar-nav">
+                        <li>
+                            <a class="nav-link-custom text-white" asp-area="" asp-controller="Home" asp-action="Index">Ínicio</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li>
+                            <a class="nav-link-custom text-white" asp-area="" asp-controller="Reporte" asp-action="Index">Reporte aqui!</a>
+                        </li>
+                        <li>
+                            <a class="nav-link-custom text-white" asp-area="" asp-controller="Estatistica" asp-action="Index">Estatísticas</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -38,7 +73,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - SeaCare - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 - SeaCare
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

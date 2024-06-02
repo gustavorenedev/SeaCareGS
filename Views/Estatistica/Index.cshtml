@@ -1,0 +1,135 @@
+﻿<h1 class="text-center">Estatísticas de Reporte</h1>
+
+<div class="charts-container">
+    <div class="chart-item">
+        <h4>Top 5 UFs com mais casos</h4>
+        <canvas id="chartjs-bar-1" width="500" height="200"></canvas>
+    </div>
+    <div class="chart-item">
+        <h4>Top 5 Artefatos com mais casos</h4>
+        <canvas id="chartjs-bar-2" width="500" height="200"></canvas>
+    </div>
+</div>
+
+<div class="text-center pt-5">
+    <h4>Total de casos: @ViewBag.TotalCasos</h4>
+</div>
+
+@{
+    var ufs = ViewBag.UfsReportadas;
+    var reportePorUf = ViewBag.ReportesPorUf;
+    var artefatos = ViewBag.ArtefatosReportados;
+    var quantidadeArtefato = ViewBag.QuantidadeArtefatos;
+
+    var ufsSerializadas = System.Text.Json.JsonSerializer.Serialize(ufs);
+    var ReportesPorUfSerializadas = System.Text.Json.JsonSerializer.Serialize(reportePorUf);
+    var artefatosSerializados = System.Text.Json.JsonSerializer.Serialize(artefatos);
+    var quantidadeArtefatoSerializados = System.Text.Json.JsonSerializer.Serialize(quantidadeArtefato);
+}
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        window.onload = function () {
+            var primaryColor = "#539ca9";
+            var secondColor = "#34616a";
+
+            var ufs = @Html.Raw(ufsSerializadas);
+            var reportes = @Html.Raw(ReportesPorUfSerializadas);
+            var artefatos = @Html.Raw(artefatosSerializados);
+            var quantidadeArtefato = @Html.Raw(quantidadeArtefatoSerializados);
+
+            var chart1 = new Chart(document.getElementById("chartjs-bar-1"), {
+                type: "bar",
+                data: {
+                    labels: ufs,
+                    datasets: [{
+                        label: "Casos",
+                        backgroundColor: primaryColor,
+                        borderColor: primaryColor,
+                        hoverBackgroundColor: primaryColor,
+                        hoverBorderColor: primaryColor,
+                        data: reportes,
+                        barPercentage: .75,
+                        categoryPercentage: .5
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            grid: {
+                                display: false
+                            },
+                            stacked: false,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            stacked: false,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        }
+                    }
+                }
+            });
+
+            var chart2 = new Chart(document.getElementById("chartjs-bar-2"), {
+                type: "bar",
+                data: {
+                    labels: artefatos,
+                    datasets: [{
+                        label: "Casos",
+                        backgroundColor: secondColor,
+                        borderColor: secondColor,
+                        hoverBackgroundColor: secondColor,
+                        hoverBorderColor: secondColor,
+                        data: quantidadeArtefato,
+                        barPercentage: .75,
+                        categoryPercentage: .5
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            grid: {
+                                display: false
+                            },
+                            stacked: false,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            stacked: false,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        }
+                    }
+                }
+            });
+        };
+    </script>
+}
+<style>
+    .charts-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 70px;
+    }
+
+    .chart-item {
+        flex: 1;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+</style>

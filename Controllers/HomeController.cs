@@ -15,11 +15,14 @@ namespace SeaCare.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
+            if (TempData.ContainsKey("Sucesso"))
+            {
+                ViewBag.Sucesso = TempData["Sucesso"];
+            }
+            else if (TempData.ContainsKey("Erro"))
+            {
+                ViewBag.Erro = TempData["Erro"];
+            }
             return View();
         }
 
