@@ -64,11 +64,11 @@ namespace SeaCare.Controllers
             }
             catch (Exception ex)
             {
-                TempData["Erro"] = "Ocorreu um erro ao processar o relatório: " + ex.Message;
+                TempData["Erro"] = "Ocorreu um erro ao processar o reporte: " + ex.Message;
                 return RedirectToAction("Index", "Home");
             }
 
-            TempData["Sucesso"] = "O relatório foi concluído com sucesso.";
+            TempData["Sucesso"] = "O reporte foi concluído com sucesso.";
             return RedirectToAction("Index", "Home");
         }
     }
