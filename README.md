@@ -49,6 +49,10 @@ O oceano é essencial para a vida no planeta. Saiba como você pode ajudar:
 - **Soluções**: Adote práticas sustentáveis, participe de limpezas e apoie a conservação marinha.
 - **Envolvimento da Comunidade**: Eduque-se, participe de atividades de conservação e influencie políticas sustentáveis.
 
+## MER
+![image](https://github.com/gustavorenedev/SeaCareGS/assets/127454671/c6e44189-fa56-4dee-9cdd-f895df8f80bf)
+
+
 ## Participantes
 
 - Igor Miguel Silva
